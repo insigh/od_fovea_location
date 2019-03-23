@@ -17,4 +17,5 @@ with open(os.path.join(root_path, 'anns.txt'), 'w') as tr1:
             ann = ' '.join([filename, '1', x1, y1, x2, y2])+'\n'
             print(ann)
             tr1.write(ann)
+print("add code to github")
 # print(annos)

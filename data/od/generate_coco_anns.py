@@ -90,3 +90,5 @@ for phase in phases:
 
     print(count)
     print(len(dataset['annotations']))
+
+print("add code to github")
