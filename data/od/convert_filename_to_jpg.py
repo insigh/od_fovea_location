@@ -13,7 +13,7 @@ with open(os.path.join(root_path, 'anns.txt'), 'w') as tr1:
             y1 = str(int(ann_list[2])-45)
             x2 = str(int(ann_list[1])+45)
             y2 = str(int(ann_list[2])+45)
-
+            # print(x1, y1, x2, y2)
             ann = ' '.join([filename, '1', x1, y1, x2, y2])+'\n'
             print(ann)
             tr1.write(ann)
