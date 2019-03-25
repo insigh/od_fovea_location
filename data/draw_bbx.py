@@ -4,10 +4,10 @@ import cv2 as cv
 import json
 import pprint
 
-ImgPath = '/home/zcj/github/od_fovea_location/data/fovea/images'
-AnnoPath = '/home/zcj/github/od_fovea_location/data/unified/detections_od_test2018_results.json'  # xml文件地址
-save_path = '/home/zcj/github/od_fovea_location/data/unified/fovea_get_ods'
-image_info_path = '/home/zcj/github/od_fovea_location/data/unified/image_info_test2018_allfovea.json'
+ImgPath = '/home/zcj/github/od_fovea_location/data/od/images'
+AnnoPath = '/home/zcj/github/od_fovea_location/data/unified/detections_fovea_test2018_results.json'  # xml文件地址
+save_path = '/home/zcj/github/od_fovea_location/data/unified/od_get_foveas'
+image_info_path = '/home/zcj/github/od_fovea_location/data/unified/image_info_test2018_allod.json'
 
 def draw_anchor(ImgPath, AnnoPath, save_path):
     # imagelist = os.listdir(ImgPath)
@@ -45,7 +45,7 @@ def draw_anchor(ImgPath, AnnoPath, save_path):
             print(img.shape)
             #
             cv.rectangle(img, (x1, y1), (x2, y2), (255, 255, 255), thickness=2)
-            cv.putText(img, 'od', (x1, y1), cv.FONT_HERSHEY_COMPLEX, 0.7, (0, 255, 0),
+            cv.putText(img, 'fovea', (x1, y1), cv.FONT_HERSHEY_COMPLEX, 0.7, (0, 255, 0),
                        thickness=2)
             # cv.imshow('head', img)
             # cv.waitKey(0)
