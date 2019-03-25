@@ -3,11 +3,11 @@ import os
 import cv2
 
 # 根路径，里面包含images(图片文件夹)，annos.txt(bbox标注)，classes.txt(类别标签),以及annotations文件夹(如果没有则会自动创建，用于保存最后的json)
-root_path = '/home/zcj/github/od_fovea_location/data/all_images'
+root_path = '/home/zcj/github/od_fovea_location/data/unified'
 # 用于创建训练集或验证集
-phases = ['test']
+phases = ['train', 'val', 'minval']
 # 训练集和验证集划分的界线
-split = [2500, 0]
+split = [4000, 4800]
 
 # 打开类别标签
 with open(os.path.join(root_path, 'classes.txt')) as f:
@@ -23,7 +23,7 @@ for phase in phases:
         dataset['categories'].append({'id': i, 'name': cls, 'supercategory': 'mark'})
     # print(dataset)
     # 读取images文件夹的图片名称
-    _indexes = [f for f in os.listdir(os.path.join(root_path, 'images'))]
+    _indexes = [f for f in os.listdir(os.path.join(root_path, 'all_images'))]
     print(len(_indexes))
     # 判断是建立训练集还是验证集
     if phase == 'train':
@@ -34,13 +34,13 @@ for phase in phases:
         indexes = [line for i, line in enumerate(_indexes) if i >= split[1]]
     print(len(indexes))
     # 读取Bbox信息
-    with open(os.path.join(root_path, 'annos1.txt')) as tr:
+    with open(os.path.join(root_path, 'annotations.txt')) as tr:
         annos = tr.readlines()
 
     count = 0
     for k, index in enumerate(indexes):
         # 用opencv读取图片，得到图像的宽和高
-        im = cv2.imread(os.path.join(root_path, 'images/') + index)
+        im = cv2.imread(os.path.join(root_path, 'all_images/') + index)
         height, width, _ = im.shape
 
         # 添加图像的信息到dataset中
@@ -84,7 +84,7 @@ for phase in phases:
     folder = os.path.join(root_path, 'annotations')
     if not os.path.exists(folder):
       os.makedirs(folder)
-    json_name = os.path.join(root_path, 'annotations/image_info_{}2018_allod.json'.format(phase))
+    json_name = os.path.join(root_path, 'annotations/instances_{}2018.json'.format(phase))
     with open(json_name, 'w') as f:
       json.dump(dataset, f)
 
