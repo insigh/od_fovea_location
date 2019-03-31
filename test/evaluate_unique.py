@@ -52,16 +52,16 @@ def unified_evaluation_fovea(pred_path=None, ann_path=None):
     preds = {}
     with open(pred_path, 'r') as pred_file:
         pred_bboxs = json.load(pred_file)
-        for pred_bbox in pred_bboxs[0:1]:
-            print(pred_bbox['image_id'], pred_bbox['bbox'])
+        for pred_bbox in pred_bboxs:
+            # print(pred_bbox['image_id'], pred_bbox['bbox'])
             preds[str(pred_bbox['image_id'])] = pred_bbox['bbox']
 
     anns = {}
     with open(ann_path, 'r') as ann_file:
         pred_bboxs = json.load(ann_file)
-        print(pred_bboxs.keys())
-        for pred_bbox in pred_bboxs["annotations"][0:1]:
-            print(pred_bbox)
+        # print(pred_bboxs.keys())
+        for pred_bbox in pred_bboxs["annotations"]:
+            # print(pred_bbox)
             anns[str(pred_bbox["image_id"])] = pred_bbox[str("bbox")]
 
     for key_ in preds.keys():
@@ -72,28 +72,28 @@ def unified_evaluation_fovea(pred_path=None, ann_path=None):
         w, h = ann_box[2], ann_box[3]
         ann_box[2], ann_box[3] = ann_box[0] + w, ann_box[1] + h
         sum_dis += compute_dis(pred_box, ann_box)
-    print(preds)
-    print(anns)
+    # print(preds)
+    # print(anns)
     print(sum_dis/len(preds))
 
-def unified_evaluation_od(pred_path=None, ann_path=None):
-    pred_path = "/home/zcj/github/od_fovea_location/data/od/results/detections_minval2018_results_85.3.json"
+def unified_evaluation_od(pred_path = "/home/zcj/Documents/results/relation_model/unique_model/od/unique200_test_83.9.json", ann_path=None):
+
     ann_path = "/home/zcj/github/od_fovea_location/data/od/annotations/image_info_test2018.json"
     count = 0
     sum_iou = 0.
     preds = {}
     with open(pred_path, 'r') as pred_file:
         pred_bboxs = json.load(pred_file)
-        for pred_bbox in pred_bboxs[0:1]:
-            print(pred_bbox['image_id'], pred_bbox['bbox'])
+        for pred_bbox in pred_bboxs:
+            # print(pred_bbox['image_id'], pred_bbox['bbox'])
             preds[str(pred_bbox['image_id'])] = pred_bbox['bbox']
 
     anns = {}
     with open(ann_path, 'r') as ann_file:
         pred_bboxs = json.load(ann_file)
-        print(pred_bboxs.keys())
-        for pred_bbox in pred_bboxs["annotations"][0:1]:
-            print(pred_bbox)
+        # print(pred_bboxs.keys())
+        for pred_bbox in pred_bboxs["annotations"]:
+            # print(pred_bbox)
             anns[str(pred_bbox["image_id"])] = pred_bbox[str("bbox")]
 
     for key_ in preds.keys():
@@ -104,8 +104,8 @@ def unified_evaluation_od(pred_path=None, ann_path=None):
         w, h = ann_box[2], ann_box[3]
         ann_box[2], ann_box[3] = ann_box[0] + w, ann_box[1] + h
         sum_iou += compute_IOU(pred_box, ann_box)
-    print(preds)
-    print(anns)
+    # print(preds)
+    # print(anns)
     print(sum_iou/len(preds))
 
 def parse_args():
@@ -126,7 +126,7 @@ def parse_args():
 #
 #     args = parse_args()
 #     print(args.pred)
-#     unified_evaluation(gt_od_file=args.od, pred_file=args.pred, gt_fovea_file=args.fovea, test_ann_file=args.ann)
+#     unified_evaluation_od()
 
-unified_evaluation_fovea()
+# unified_evaluation_fovea()
 unified_evaluation_od()
