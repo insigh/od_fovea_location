@@ -44,7 +44,7 @@ def compute_dis(bbox_gt, bbox_pre):
 
 
 def unified_evaluation_fovea(pred_path=None, ann_path=None):
-    pred_path = "/home/zcj/github/od_fovea_location/data/fovea/annotations/detections_minval2018_results_53.6.json"
+    pred_path = "/home/zcj/Documents/results/relation_model/unique_model/fovea/fovea100_test.json"
     ann_path = "/home/zcj/github/od_fovea_location/data/fovea/annotations/instances_test2018.json"
 
     count = 0
@@ -128,5 +128,5 @@ def parse_args():
 #     print(args.pred)
 #     unified_evaluation_od()
 
-# unified_evaluation_fovea()
-unified_evaluation_od()
+unified_evaluation_fovea()
+# unified_evaluation_od()
