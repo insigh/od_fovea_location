@@ -44,7 +44,13 @@ def compute_dis(bbox_gt, bbox_pre):
 
 
 def unified_evaluation_fovea(pred_path=None, ann_path=None):
-    pred_path = "/home/zcj/Documents/results/relation_model/unique_model/fovea/fovea100_test.json"
+    """
+
+    :param pred_path:
+    :param ann_path:
+    :return:
+    """
+    pred_path = "/home/zcj/Documents/results/relation_model/unique_model/fovea/fovea100_test_1.json"
     ann_path = "/home/zcj/github/od_fovea_location/data/fovea/annotations/instances_test2018.json"
 
     count = 0
@@ -110,7 +116,7 @@ def unified_evaluation_od(pred_path = "/home/zcj/Documents/results/relation_mode
 
 def parse_args():
     parser = argparse.ArgumentParser(description='Evaluate result fenerated by a model')
-    parser.add_argument('--od', dest='od', default="/home/zcj/github/od_fovea_location/data/od/annos1.txt", type=str)
+    parser.add_argument('--od', dest='od', default="/home/zcj/github/od_fovea_location/data/od/annotations.txt", type=str)
     parser.add_argument('--fovea',dest='fovea', default="/home/zcj/github/od_fovea_location/data/fovea/anns.txt", type=str)
     parser.add_argument('--pred',dest='pred', help="res of model generated json file path", required=True, type=str)
     parser.add_argument('--ann',dest='ann', help="the test json data, default for test196",

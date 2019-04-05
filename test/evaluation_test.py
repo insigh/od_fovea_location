@@ -102,7 +102,7 @@ def unified_evaluation(gt_od_file=None, gt_fovea_file=None, pred_file=None, test
 
 def parse_args():
     parser = argparse.ArgumentParser(description='Evaluate result fenerated by a model')
-    parser.add_argument('--od', dest='od', default="/home/zcj/github/od_fovea_location/data/od/annos1.txt", type=str)
+    parser.add_argument('--od', dest='od', default="/home/zcj/github/od_fovea_location/data/od/annotations.txt", type=str)
     parser.add_argument('--fovea',dest='fovea', default="/home/zcj/github/od_fovea_location/data/fovea/anns.txt", type=str)
     parser.add_argument('--pred',dest='pred', help="res of model generated json file path", required=True, type=str)
     parser.add_argument('--ann',dest='ann', help="the test json data, default for test196",

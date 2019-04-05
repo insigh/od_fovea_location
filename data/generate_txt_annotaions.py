@@ -19,7 +19,7 @@ images_files = os.listdir('/home/zcj/github/od_fovea_location/data/od/images')
 
 # for idx, image_file in enumerate(images_files):
 #     print(idx, image_file)
-with open('/home/zcj/github/od_fovea_location/data/od/annos1.txt', 'r') as anns_od_gt_file:
+with open('/home/zcj/github/od_fovea_location/data/od/annotations.txt', 'r') as anns_od_gt_file:
     anns_od_gt = anns_od_gt_file.readlines()
     anns_gt_ods = {}
     for ann in anns_od_gt:
