@@ -32,7 +32,7 @@ with open('/home/zcj/github/od_fovea_location/data/od/annotations.txt', 'r') as 
         y2 = str(ann[5])
         anns_gt_ods[filename] = ' '.join([class_id, x1, y1, x2, y2])
 
-with open('/home/zcj/github/od_fovea_location/data/fovea/anns.txt', 'r') as anns_fovea_gt_file:
+with open('/home/zcj/github/od_fovea_location/data/fovea/annotations.txt', 'r') as anns_fovea_gt_file:
     anns_fovea_gt = anns_fovea_gt_file.readlines()
     anns_gt_foveas = {}
     for ann in anns_fovea_gt:
@@ -87,7 +87,7 @@ with open("annotations.txt", 'w') as anns_file:
     for idx, image_file in enumerate(images_files):
             if image_file in anns_gt_ods:
                 anns_file.write(image_file+' '+anns_gt_ods[image_file]+'\n')
-            else:
+            elif image_file in generated_od_anns:
                 anns_file.write(image_file + ' ' + generated_od_anns[image_file] + '\n')
 
             if image_file in anns_gt_foveas:
