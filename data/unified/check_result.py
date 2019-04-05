@@ -14,7 +14,7 @@ def check_result(res_path):
                 # print(idx, ann)
                 cnt += 1
                 # print(cnt)
-                if ann['score'] < 0.6:
+                if ann['score'] < 0.1:
                     # print(idx, ann)
                     count+=1
                 else:
