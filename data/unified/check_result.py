@@ -22,5 +22,5 @@ def check_result(res_path):
             print('end')
             print(count, cnt)
             # print(res)
-            # json.dump(res_, new_res)
+            json.dump(res_, new_res)
 check_result('detections_od_get_fovea_test2018_results.json')
