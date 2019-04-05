@@ -19,8 +19,9 @@ def check_result(res_path):
                     count+=1
                 else:
                     res_.append(ann)
+                    index += 1
             print('end')
-            print(count, cnt)
+            print(count, cnt, index)
             # print(res)
             json.dump(res_, new_res)
 check_result('detections_od_get_fovea_test2018_results.json')
