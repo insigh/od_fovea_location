@@ -82,9 +82,9 @@ def unified_evaluation_fovea(pred_path=None, ann_path=None):
     # print(anns)
     print(sum_dis/len(preds))
 
-def unified_evaluation_od(pred_path = "/home/zcj/Documents/results/relation_model/unique_model/od/unique200_test_83.9.json", ann_path=None):
+def unified_evaluation_od(pred_path = "//home/zcj/Documents/results/relation_model/unique_model/od/detections_od_test2018_results.json", ann_path=None):
 
-    ann_path = "/home/zcj/github/od_fovea_location/data/od/annotations/image_info_test2018.json"
+    ann_path = "/home/zcj/github/od_fovea_location/data/od/annotations/instances_minval2018.json"
     count = 0
     sum_iou = 0.
     preds = {}
@@ -134,5 +134,5 @@ def parse_args():
 #     print(args.pred)
 #     unified_evaluation_od()
 
-unified_evaluation_fovea()
-# unified_evaluation_od()
+# unified_evaluation_fovea()
+unified_evaluation_od()
