@@ -5,9 +5,9 @@ import json
 import pprint
 
 ImgPath = '/home/zcj/github/od_fovea_location/data/od/images'
-AnnoPath = '/home/zcj/github/od_fovea_location/data/unified/detections_fovea_test2018_results.json'  # xml文件地址
+AnnoPath = '/home/zcj/github/od_fovea_location/data/unified/detections_od_get_fovea_test2018_results.json'  # xml文件地址
 save_path = '/home/zcj/github/od_fovea_location/data/unified/od_get_foveas'
-image_info_path = '/home/zcj/github/od_fovea_location/data/unified/image_info_test2018_allod.json'
+image_info_path = '/home/zcj/github/od_fovea_location/data/od/annotations/image_info_test2018_allod.json'
 
 def draw_anchor(ImgPath, AnnoPath, save_path):
     # imagelist = os.listdir(ImgPath)

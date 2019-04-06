@@ -15,7 +15,7 @@ import os.path as osp
 import os
 import json
 
-images_files = os.listdir('/home/zcj/github/od_fovea_location/data/od/images')
+images_files = os.listdir('/home/zcj/github/od_fovea_location/data/unified/images')
 
 # for idx, image_file in enumerate(images_files):
 #     print(idx, image_file)
@@ -77,13 +77,13 @@ def get_predict_info(AnnoPath, image_info_path, class_id):
     print(count)
     return image_file_ann
 # 3K
-generated_od_anns = get_predict_info(AnnoPath='detections_od_test2018_results.json', image_info_path='image_info_test2018_allfovea.json', class_id='1')
+generated_od_anns = get_predict_info(AnnoPath='/home/zcj/github/od_fovea_location/data/unified/new_fovea_get_od_res.json', image_info_path='/home/zcj/github/od_fovea_location/data/fovea/annotations/image_info_test2018_allfovea.json', class_id='1')
 # 2K
-generated_fovea_anns = get_predict_info(AnnoPath='detections_fovea_test2018_results.json', image_info_path='image_info_test2018_allod.json', class_id='2')
+generated_fovea_anns = get_predict_info(AnnoPath='/home/zcj/github/od_fovea_location/data/unified/detections_od_get_fovea_test2018_results.json', image_info_path='/home/zcj/github/od_fovea_location/data/od/annotations/image_info_test2018_allod.json', class_id='2')
 
 
 with open("annotations.txt", 'w') as anns_file:
-    images_files = os.listdir('/home/zcj/github/od_fovea_location/data/od/images')
+    images_files = os.listdir('/home/zcj/github/od_fovea_location/data/unified/images')
     for idx, image_file in enumerate(images_files):
             if image_file in anns_gt_ods:
                 anns_file.write(image_file+' '+anns_gt_ods[image_file]+'\n')
@@ -92,7 +92,7 @@ with open("annotations.txt", 'w') as anns_file:
 
             if image_file in anns_gt_foveas:
                 anns_file.write(image_file+' '+anns_gt_foveas[image_file]+'\n')
-            else:
+            elif image_file in generated_fovea_anns:
                 anns_file.write(image_file+' '+generated_fovea_anns[image_file]+'\n')
 
 

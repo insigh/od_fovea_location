@@ -14,14 +14,14 @@ def check_result(res_path):
                 # print(idx, ann)
                 cnt += 1
                 # print(cnt)
-                if ann['score'] < 0.1:
-                    # print(idx, ann)
-                    count+=1
-                else:
-                    res_.append(ann)
-                    index += 1
+                # if ann['score'] < 0.3:
+                #     print(idx, ann)
+                #     count+=1
+                # else:
+                #     res_.append(ann)
+                #     index += 1
             print('end')
             print(count, cnt, index)
             # print(res)
-            json.dump(res_, new_res)
+            # json.dump(res_, new_res)
 check_result('detections_od_get_fovea_test2018_results.json')

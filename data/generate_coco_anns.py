@@ -3,7 +3,7 @@ import os
 import cv2
 
 
-def generate_coco_anns(root_path='/home/zcj/github/od_fovea_location/data/fovea', split = [2600, 2800]):
+def generate_coco_anns(root_path='/home/zcj/github/od_fovea_location/data/unified', split = [2600, 2800]):
 # 根路径，里面包含images(图片文件夹)，id.od.txt(bbox标注)，classes.txt(类别标签),以及annotations文件夹(如果没有则会自动创建，用于保存最后的json)
 
     # 用于创建训练集或验证集
@@ -91,5 +91,5 @@ def generate_coco_anns(root_path='/home/zcj/github/od_fovea_location/data/fovea'
         print(count)
         print(len(dataset['annotations']))
 
-generate_coco_anns(root_path='/home/zcj/github/od_fovea_location/data/fovea', split=[2600,2800])
+generate_coco_anns(root_path='/home/zcj/github/od_fovea_location/data/unified', split=[4500, 4800])
 print("add code to github")
